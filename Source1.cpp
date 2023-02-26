@@ -148,25 +148,3 @@ private:
 	int length;
 };
 
-
-
-int main()
-{
-
-	
-	
-
-	MyString str("Hello");
-	MyString str2("Hello");
-	
-	MyString result;
-
-	result = str + str2;
-	
-	
-		
-
-	
-
-	return 0;
-}
