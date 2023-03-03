@@ -147,13 +147,13 @@ public:
 
 char* c_str (const string& str)
 {
-          char* array[str.size()];
+          char* array[str.size() + 1];
           
           for(int i = 0; i < str.size(); ++i)
           {
                 array[i] = str[i];
           }
-          return array;
+          return array + '\0';
 }
 
 
