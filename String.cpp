@@ -142,6 +142,23 @@ public:
 		return length;
 	}
 
+//////////////
+
+
+char* c_str (const string& str)
+{
+          char* array[str.size()];
+          
+          for(int i = 0; i < str.size(); ++i)
+          {
+                array[i] = str[i];
+          }
+          return array;
+}
+
+
+
+///////////////
 
 private:
 	char* str;
