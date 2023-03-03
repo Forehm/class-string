@@ -156,6 +156,20 @@ char* c_str (const string& str)
           return array + '\0';
 }
 
+void push_back (const char& symbol)
+{
+     Char* array[length + 2];
+
+      for(int i = 0; i < length; ++i)
+      {
+           array[i] = str[i];
+      }
+      array[length] = symbol;
+      array[length + 1] = ‘\0’;
+       
+      this->str = array;
+      array = nullptr;
+}
 
 
 ///////////////
