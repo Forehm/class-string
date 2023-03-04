@@ -1,3 +1,6 @@
+# 04.03.2023 Update
+updated push_back() and c_str() methods
+
 # 03.03.2023 Update 
 added push_back() and c_str() methods
 
