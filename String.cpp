@@ -1,4 +1,3 @@
-
 class MyString
 {
 public:
@@ -26,7 +25,7 @@ public:
 		length = strlen(other.str);
 		this->str = new char[length + 1];
 
-		for (int i = 0; i < length; i++)
+		for (int i = 0; i < length; ++i)
 		{
 			this->str[i] = other.str[i];
 		}
@@ -34,15 +33,6 @@ public:
 		this->str[length] = '\0';
 
 	}
-
-	MyString(MyString&& other)
-	{
-		this->length = other.length;
-		this->str = other.str;
-
-		other.str = nullptr;
-	}
-
 
 	MyString& operator = (const MyString& other)
 	{
@@ -63,9 +53,6 @@ public:
 
 		return *this;
 	}
-
-
-
 
 	MyString operator +(const MyString& other)
 	{
@@ -129,7 +116,7 @@ public:
 
 	void print()
 	{
-		cout << str << endl;
+		std::cout << str << std::endl;
 	}
 
 	int Length()
@@ -159,7 +146,20 @@ public:
 		++length;
 	}
 
+	friend std::ostream& operator << (std::ostream& os, MyString& s);
+
 private:
 	char* str;
 	int length;
 };
+
+
+std::ostream& operator << (std::ostream& os, MyString& s)
+{
+	for (int i = 0; i < s.Length(); ++i)
+	{
+		os << s.str[i];
+	}
+
+	return os;
+}
