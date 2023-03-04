@@ -1,8 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
-
 
 class MyString
 {
@@ -18,12 +13,12 @@ public:
 		length = strlen(str);
 		this->str = new char[length + 1];
 
-		
-			for(int i = 0; i < length; i++)
-			{
-				this->str[i] = str[i];
-			}
-			this->str[length] = '\0';
+
+		for (int i = 0; i < length; i++)
+		{
+			this->str[i] = str[i];
+		}
+		this->str[length] = '\0';
 	}
 
 	MyString(const MyString& other)
@@ -48,7 +43,7 @@ public:
 		other.str = nullptr;
 	}
 
-	
+
 	MyString& operator = (const MyString& other)
 	{
 		if (str != nullptr)
@@ -70,7 +65,7 @@ public:
 	}
 
 
-	
+
 
 	MyString operator +(const MyString& other)
 	{
@@ -98,7 +93,7 @@ public:
 		return newstr;
 	}
 
-	bool operator == (const MyString &other)
+	bool operator == (const MyString& other)
 	{
 		if (this->length != other.length)
 		{
@@ -121,12 +116,12 @@ public:
 	}
 
 
-	char & operator [] (int index)
+	char& operator [] (int index)
 	{
 		return this->str[index];
 	}
 
-	   
+
 	~MyString()
 	{
 		delete[] this->str;
@@ -142,40 +137,29 @@ public:
 		return length;
 	}
 
-//////////////
+	char* c_str()
+	{
+		return str;
+	}
 
+	void push_back(const char& symbol)
+	{
 
-char* c_str (const string& str)
-{
-          char* array[str.size() + 1];
-          
-          for(int i = 0; i < str.size(); ++i)
-          {
-                array[i] = str[i];
-          }
-          return array + '\0';
-}
+		char* array = new char[length + 2];
 
-void push_back (const char& symbol)
-{
-     Char* array[length + 2];
+		for (int i = 0; i < length; ++i)
+		{
+			array[i] = str[i];
+		}
+		array[length] = symbol;
+		array[length + 1] = '\0';
 
-      for(int i = 0; i < length; ++i)
-      {
-           array[i] = str[i];
-      }
-      array[length] = symbol;
-      array[length + 1] = ‘\0’;
-       
-      this->str = array;
-      array = nullptr;
-}
-
-
-///////////////
+		this->str = array;
+		array = nullptr;
+		++length;
+	}
 
 private:
 	char* str;
 	int length;
 };
-
