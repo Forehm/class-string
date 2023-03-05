@@ -1,13 +1,13 @@
-class MyString
+class String
 {
 public:
-	MyString()
+	String()
 	{
 		str = nullptr;
 		length = 0;
 	}
 
-	MyString(const char* str)
+	String(const char* str)
 	{
 		length = strlen(str);
 		this->str = new char[length + 1];
@@ -20,7 +20,7 @@ public:
 		this->str[length] = '\0';
 	}
 
-	MyString(const MyString& other)
+	String(const String& other)
 	{
 		length = strlen(other.str);
 		this->str = new char[length + 1];
@@ -34,7 +34,7 @@ public:
 
 	}
 
-	MyString& operator = (const MyString& other)
+	String& operator = (const String& other)
 	{
 		if (str != nullptr)
 		{
@@ -54,9 +54,9 @@ public:
 		return *this;
 	}
 
-	MyString operator +(const MyString& other)
+	String operator + (const String& other)
 	{
-		MyString newstr;
+		String newstr;
 		int thislength = strlen(this->str);
 		int otherlength = strlen(other.str);
 
@@ -80,7 +80,7 @@ public:
 		return newstr;
 	}
 
-	bool operator == (const MyString& other)
+	bool operator == (const String& other)
 	{
 		if (this->length != other.length)
 		{
@@ -97,7 +97,7 @@ public:
 		return true;
 	}
 
-	bool operator != (const MyString& other)
+	bool operator != (const String& other)
 	{
 		return !(this->operator==(other));
 	}
@@ -109,7 +109,7 @@ public:
 	}
 
 
-	~MyString()
+	~String()
 	{
 		delete[] this->str;
 	}
@@ -146,11 +146,11 @@ public:
 		++length;
 	}
 
-	friend std::ostream& operator << (std::ostream& os, MyString& s);
+	friend std::ostream& operator << (std::ostream& os, String& s);
 	
-	bool operator < (const MyString& other) { return this->length < other.length; }
+	bool operator < (const String& other) { return this->length < other.length; }
 
-	bool operator > (const MyString& other) { return this->length > other.length; }
+	bool operator > (const String& other) { return this->length > other.length; }
 	
 private:
 	char* str;
@@ -158,7 +158,7 @@ private:
 };
 
 
-std::ostream& operator << (std::ostream& os, MyString& s)
+std::ostream& operator << (std::ostream& os, String& s)
 {
 	for (int i = 0; i < s.Length(); ++i)
 	{
