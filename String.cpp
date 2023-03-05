@@ -147,7 +147,11 @@ public:
 	}
 
 	friend std::ostream& operator << (std::ostream& os, MyString& s);
+	
+	bool operator < (const MyString& other) { return this->length < other.length; }
 
+	bool operator > (const MyString& other) { return this->length > other.length; }
+	
 private:
 	char* str;
 	int length;
