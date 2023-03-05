@@ -1,5 +1,6 @@
 # 05.03.2023 Update
 Added overloaded < and > operators
+Also added a function Find() that will tell if there a certain symbol or not
 
 # 04.03.2023 Update
 updated push_back() and c_str() methods
