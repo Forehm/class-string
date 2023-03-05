@@ -1,3 +1,6 @@
+# 05.03.2023 Update
+Added overloaded < and > operators
+
 # 04.03.2023 Update
 updated push_back() and c_str() methods
 Also added an overloaded operator <<
