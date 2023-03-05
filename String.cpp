@@ -152,6 +152,18 @@ public:
 
 	bool operator > (const String& other) { return this->length > other.length; }
 	
+	bool Find(const char& symbol)
+	{
+		for (int i = 0; i < length; ++i)
+		{
+			if (str[i] == symbol)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 private:
 	char* str;
 	int length;
