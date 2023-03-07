@@ -167,7 +167,21 @@ public:
 		}
 		return false;
 	}
-	
+//////////////////////////////////////////////////////////////	
+	//////////in progress/////////////////////
+	char& at(const int& index)
+	{
+		if (index > length || index < length)
+		{
+			throw 1;
+		}
+		else
+		{
+			return this->str[index - 1];
+		}
+		
+	}
+//////////////////////////////////////////////////////////////	
 private:
 	char* str;
 	int length;
