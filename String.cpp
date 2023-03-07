@@ -1,3 +1,18 @@
+class String_exception : std::exception
+{
+public:
+
+	void What(const int& error_number)
+	{
+		////soon...
+	}
+
+private:
+
+
+};
+
+
 class String
 {
 public:
