@@ -1,18 +1,3 @@
-class String_exception : std::exception
-{
-public:
-
-	void What(const int& error_number)
-	{
-		////soon...
-	}
-
-private:
-
-
-};
-
-
 class String
 {
 public:
@@ -129,12 +114,12 @@ public:
 		delete[] this->str;
 	}
 
-	void print()
+	void Print()
 	{
 		std::cout << str << std::endl;
 	}
 
-	int Length()
+	int Size()
 	{
 		return length;
 	}
@@ -162,15 +147,15 @@ public:
 	}
 
 	friend std::ostream& operator << (std::ostream& os, String& s);
-	
+
 	bool operator < (const String& other) { return this->length < other.length; }
 
 	bool operator > (const String& other) { return this->length > other.length; }
-	
+
 	bool operator <= (const String& other) { return this->length <= other.length; }
 
 	bool operator >= (const String& other) { return this->length >= other.length; }
-	
+
 	bool Find(const char& symbol)
 	{
 		for (int i = 0; i < length; ++i)
@@ -182,30 +167,54 @@ public:
 		}
 		return false;
 	}
-//////////////////////////////////////////////////////////////	
-	//////////in progress/////////////////////
-	char& at(const int& index)
+
+	char& At(const int& index)
 	{
-		if (index > length || index < length)
+		if (index >= length || index <= 0)
 		{
-			throw 1;
+			////exception will be here soon
 		}
 		else
 		{
-			return this->str[index - 1];
+			return str[index - 1];
 		}
-		
+
 	}
-//////////////////////////////////////////////////////////////	
+
+	bool is_empty()
+	{
+		return length == 0;
+	}
+
+	void Fill(const int& count_of_symbols, const char& symbol)
+	{
+		if (str != nullptr)
+		{
+			delete[] str;
+		}
+		str = new char[count_of_symbols];
+
+		for (int i = 0; i < count_of_symbols; ++i)
+		{
+			str[i] = symbol;
+		}
+		str += '\0';
+
+		length = count_of_symbols;
+	}
+
+
+
 private:
 	char* str;
 	int length;
 };
 
 
+
 std::ostream& operator << (std::ostream& os, String& s)
 {
-	for (int i = 0; i < s.Length(); ++i)
+	for (int i = 0; i < s.Size(); ++i)
 	{
 		os << s.str[i];
 	}
