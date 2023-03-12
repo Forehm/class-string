@@ -1,3 +1,41 @@
+class StringException : public exception
+{
+private:
+	int error_number_ = 0;
+
+public:
+	StringException(const int& error)
+	{
+		error_number_ = error;
+	}
+
+	const char* What()
+	{
+		switch (error_number_)
+		{
+		case 1:
+		{
+			return "index is out of array range";
+			break;
+		}
+		case 2:
+		{
+			return "the size cannot be negative";
+			break;
+		}
+		case 3:
+		{
+			return "the size of the array is too low";
+			break;
+		}
+		default:
+		{
+			break;
+		}
+		}
+	}
+};
+
 class String
 {
 public:
@@ -172,7 +210,7 @@ public:
 	{
 		if (index >= length || index <= 0)
 		{
-			////exception will be here soon
+			throw StringException(1);
 		}
 		else
 		{
