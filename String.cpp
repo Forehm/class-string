@@ -42,33 +42,33 @@ public:
 	String()
 	{
 		str = nullptr;
-		length = 0;
+		size_ = 0;
 	}
 
 	String(const char* str)
 	{
-		length = strlen(str);
-		this->str = new char[length + 1];
+		size_ = strlen(str);
+		this->str = new char[size_ + 1];
 
 
-		for (int i = 0; i < length; i++)
+		for (int i = 0; i < size_; i++)
 		{
 			this->str[i] = str[i];
 		}
-		this->str[length] = '\0';
+		this->str[size_] = '\0';
 	}
 
 	String(const String& other)
 	{
-		length = strlen(other.str);
-		this->str = new char[length + 1];
+		size_ = strlen(other.str);
+		this->str = new char[size_ + 1];
 
-		for (int i = 0; i < length; ++i)
+		for (int i = 0; i < size_; ++i)
 		{
 			this->str[i] = other.str[i];
 		}
 
-		this->str[length] = '\0';
+		this->str[size_] = '\0';
 
 	}
 
@@ -79,14 +79,14 @@ public:
 			delete[] str;
 		}
 
-		length = strlen(other.str);
-		this->str = new char[length + 1];
+		size_ = strlen(other.str);
+		this->str = new char[size_ + 1];
 
-		for (int i = 0; i < length; i++)
+		for (int i = 0; i < size_; i++)
 		{
 			this->str[i] = other.str[i];
 		}
-		this->str[length] = '\0';
+		this->str[size_] = '\0';
 
 
 		return *this;
@@ -98,7 +98,7 @@ public:
 		int thislength = strlen(this->str);
 		int otherlength = strlen(other.str);
 
-		newstr.length = thislength + otherlength;
+		newstr.size_ = thislength + otherlength;
 
 		newstr.str = new char[thislength + otherlength + 1];
 
@@ -120,12 +120,12 @@ public:
 
 	bool operator == (const String& other)
 	{
-		if (this->length != other.length)
+		if (this->size_ != other.size_)
 		{
 			return false;
 		}
 
-		for (int i = 0; i < other.length; i++)
+		for (int i = 0; i < other.size_; i++)
 		{
 			if (this->str[i] != other.str[i])
 			{
@@ -159,7 +159,7 @@ public:
 
 	int Size()
 	{
-		return length;
+		return size_;
 	}
 
 	char* c_str()
@@ -170,33 +170,60 @@ public:
 	void push_back(const char& symbol)
 	{
 
-		char* array = new char[length + 2];
+		char* array = new char[size_ + 2];
 
-		for (int i = 0; i < length; ++i)
+		for (int i = 0; i < size_; ++i)
 		{
 			array[i] = str[i];
 		}
-		array[length] = symbol;
-		array[length + 1] = '\0';
+		array[size_] = symbol;
+		array[size_ + 1] = '\0';
 
 		this->str = array;
 		array = nullptr;
-		++length;
+		++size_;
+	}
+
+	void pop_front()
+	{
+		char* array = new char[size_];
+		for (int i = 1; i < size_; ++i)
+		{
+			array[i - 1] = str[i];
+		}
+
+		this->str = array;
+		array = nullptr;
+		--size_;
+	}
+
+	void pop_back()
+	{
+		--size_;
+		char* array = new char[size_];
+		for (int i = 0; i < size_; ++i)
+		{
+			array[i] = str[i];
+		}
+
+		this->str = array;
+		array = nullptr;
+
 	}
 
 	friend std::ostream& operator << (std::ostream& os, String& s);
 
-	bool operator < (const String& other) { return this->length < other.length; }
+	bool operator < (const String& other) { return this->size_ < other.size_; }
 
-	bool operator > (const String& other) { return this->length > other.length; }
+	bool operator > (const String& other) { return this->size_ > other.size_; }
 
-	bool operator <= (const String& other) { return this->length <= other.length; }
+	bool operator <= (const String& other) { return this->size_ <= other.size_; }
 
-	bool operator >= (const String& other) { return this->length >= other.length; }
+	bool operator >= (const String& other) { return this->size_ >= other.size_; }
 
 	bool Find(const char& symbol)
 	{
-		for (int i = 0; i < length; ++i)
+		for (int i = 0; i < size_; ++i)
 		{
 			if (str[i] == symbol)
 			{
@@ -208,7 +235,7 @@ public:
 
 	char& At(const int& index)
 	{
-		if (index >= length || index <= 0)
+		if (index >= size_ || index <= 0)
 		{
 			throw StringException(1);
 		}
@@ -221,7 +248,7 @@ public:
 
 	bool is_empty()
 	{
-		return length == 0;
+		return size_ == 0;
 	}
 
 	void Fill(const int& count_of_symbols, const char& symbol)
@@ -238,14 +265,14 @@ public:
 		}
 		str += '\0';
 
-		length = count_of_symbols;
+		size_ = count_of_symbols;
 	}
 
 
 
 private:
 	char* str;
-	int length;
+	int size_;
 };
 
 
@@ -259,3 +286,5 @@ std::ostream& operator << (std::ostream& os, String& s)
 
 	return os;
 }
+
+
