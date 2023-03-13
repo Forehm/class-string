@@ -42,34 +42,34 @@ class String
 public:
 	String()
 	{
-		str = nullptr;
+		str_ = nullptr;
 		size_ = 0;
 	}
 
 	String(const char* str)
 	{
 		size_ = strlen(str);
-		this->str = new char[size_ + 1];
+		this->str_ = new char[size_ + 1];
 
 
 		for (int i = 0; i < size_; i++)
 		{
-			this->str[i] = str[i];
+			this->str_[i] = str[i];
 		}
-		this->str[size_] = '\0';
+		this->str_[size_] = '\0';
 	}
 
 	String(const String& other)
 	{
-		size_ = strlen(other.str);
-		this->str = new char[size_ + 1];
+		size_ = strlen(other.str_);
+		this->str_ = new char[size_ + 1];
 
 		for (int i = 0; i < size_; ++i)
 		{
-			this->str[i] = other.str[i];
+			this->str_[i] = other.str_[i];
 		}
 
-		this->str[size_] = '\0';
+		this->str_[size_] = '\0';
 
 	}
 
@@ -81,30 +81,30 @@ public:
 		}
 
 		size_ = new_size;
-		this->str = new char[size_ + 1];
+		this->str_ = new char[size_ + 1];
 
 		for (int i = 0; i < size_; ++i)
 		{
-			this->str[i] = symbol;
+			this->str_[i] = symbol;
 		}
-		str += '\0';
+		str_ += '\0';
 	}
 
 	String& operator = (const String& other)
 	{
-		if (str != nullptr)
+		if (str_ != nullptr)
 		{
-			delete[] str;
+			delete[] str_;
 		}
 
-		size_ = strlen(other.str);
-		this->str = new char[size_ + 1];
+		size_ = strlen(other.str_);
+		this->str_ = new char[size_ + 1];
 
 		for (int i = 0; i < size_; i++)
 		{
-			this->str[i] = other.str[i];
+			this->str_[i] = other.str_[i];
 		}
-		this->str[size_] = '\0';
+		this->str_[size_] = '\0';
 
 
 		return *this;
@@ -113,25 +113,25 @@ public:
 	String operator + (const String& other)
 	{
 		String newstr;
-		int thislength = strlen(this->str);
-		int otherlength = strlen(other.str);
+		int thislength = strlen(this->str_);
+		int otherlength = strlen(other.str_);
 
 		newstr.size_ = thislength + otherlength;
 
-		newstr.str = new char[thislength + otherlength + 1];
+		newstr.str_ = new char[thislength + otherlength + 1];
 
 		int i;
 
 		for (i = 0; i < thislength; i++)
 		{
-			newstr.str[i] = this->str[i];
+			newstr.str_[i] = this->str_[i];
 		}
 
 		for (int j = 0; j < otherlength; i++, j++)
 		{
-			newstr.str[i] = other.str[j];
+			newstr.str_[i] = other.str_[j];
 		}
-		newstr.str[thislength + otherlength] = '\0';
+		newstr.str_[thislength + otherlength] = '\0';
 
 		return newstr;
 	}
@@ -145,7 +145,7 @@ public:
 
 		for (int i = 0; i < other.size_; i++)
 		{
-			if (this->str[i] != other.str[i])
+			if (this->str_[i] != other.str_[i])
 			{
 				return false;
 			}
@@ -160,17 +160,17 @@ public:
 
 	char& operator [] (int index)
 	{
-		return this->str[index];
+		return this->str_[index];
 	}
 
 	~String()
 	{
-		delete[] this->str;
+		delete[] this->str_;
 	}
 
 	void Print()
 	{
-		std::cout << str << std::endl;
+		std::cout << str_ << std::endl;
 	}
 
 	int Size()
@@ -180,7 +180,7 @@ public:
 
 	char* c_str()
 	{
-		return str;
+		return str_;
 	}
 
 	void push_back(const char& symbol)
@@ -190,12 +190,12 @@ public:
 
 		for (int i = 0; i < size_; ++i)
 		{
-			array[i] = str[i];
+			array[i] = str_[i];
 		}
 		array[size_] = symbol;
 		array[size_ + 1] = '\0';
 
-		this->str = array;
+		this->str_ = array;
 		array = nullptr;
 		++size_;
 	}
@@ -205,10 +205,10 @@ public:
 		char* array = new char[size_];
 		for (int i = 1; i < size_; ++i)
 		{
-			array[i - 1] = str[i];
+			array[i - 1] = str_[i];
 		}
 
-		this->str = array;
+		this->str_ = array;
 		array = nullptr;
 		--size_;
 	}
@@ -219,10 +219,10 @@ public:
 		char* array = new char[size_];
 		for (int i = 0; i < size_; ++i)
 		{
-			array[i] = str[i];
+			array[i] = str_[i];
 		}
 
-		this->str = array;
+		this->str_ = array;
 		array = nullptr;
 
 	}
@@ -241,7 +241,7 @@ public:
 	{
 		for (int i = 0; i < size_; ++i)
 		{
-			if (str[i] == symbol)
+			if (str_[i] == symbol)
 			{
 				return true;
 			}
@@ -257,7 +257,7 @@ public:
 		}
 		else
 		{
-			return str[index - 1];
+			return str_[index - 1];
 		}
 
 	}
@@ -269,17 +269,17 @@ public:
 
 	void Fill(const int& count_of_symbols, const char& symbol)
 	{
-		if (str != nullptr)
+		if (str_ != nullptr)
 		{
-			delete[] str;
+			delete[] str_;
 		}
-		str = new char[count_of_symbols];
+		str_ = new char[count_of_symbols];
 
 		for (int i = 0; i < count_of_symbols; ++i)
 		{
-			str[i] = symbol;
+			str_[i] = symbol;
 		}
-		str += '\0';
+		str_ += '\0';
 
 		size_ = count_of_symbols;
 	}
@@ -287,7 +287,7 @@ public:
 
 
 private:
-	char* str;
+	char* str_;
 	int size_;
 };
 
@@ -297,7 +297,7 @@ std::ostream& operator << (std::ostream& os, String& s)
 {
 	for (int i = 0; i < s.Size(); ++i)
 	{
-		os << s.str[i];
+		os << s.str_[i];
 	}
 
 	return os;
