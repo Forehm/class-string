@@ -30,6 +30,7 @@ public:
 		}
 		default:
 		{
+			return "Some unknown exception";
 			break;
 		}
 		}
@@ -70,6 +71,23 @@ public:
 
 		this->str[size_] = '\0';
 
+	}
+
+	String(const int& new_size, const char& symbol)
+	{
+		if (new_size <= 0)
+		{
+			throw StringException(2);
+		}
+
+		size_ = new_size;
+		this->str = new char[size_ + 1];
+
+		for (int i = 0; i < size_; ++i)
+		{
+			this->str[i] = symbol;
+		}
+		str += '\0';
 	}
 
 	String& operator = (const String& other)
@@ -140,12 +158,10 @@ public:
 		return !(this->operator==(other));
 	}
 
-
 	char& operator [] (int index)
 	{
 		return this->str[index];
 	}
-
 
 	~String()
 	{
