@@ -21,6 +21,24 @@ public:
 		T* ptr_;
 	};
 
+	class const_iterator
+	{
+	public:
+
+
+		const_iterator(T* ptr) : ptr_(ptr) { }
+		const_iterator operator++() { const_iterator i = *this; ptr_++; return i; }
+		const_iterator operator++(int junk) { ptr_++; return *this; }
+		const T& operator*() { return *ptr_; }
+		const T* operator->() { return ptr_; }
+		bool operator==(const const_iterator& rhs) { return ptr_ == rhs.ptr_; }
+		bool operator!=(const const_iterator& rhs) { return ptr_ != rhs.ptr_; }
+
+
+	private:
+		T* ptr_;
+	};
+
 	String()
 	{
 		str_ = nullptr;
