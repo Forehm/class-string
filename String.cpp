@@ -54,6 +54,21 @@ public:
 		T* ptr_;
 	};
 
+	class const_reverse_iterator
+	{
+	public:
+		const_reverse_iterator(T* ptr) : ptr_(ptr) { }
+		const_reverse_iterator operator++() { const_reverse_iterator i = *this; ptr_--; return i; }
+		const_reverse_iterator operator++(int junk) { ptr_--; return *this; }
+		const T& operator*() { return *ptr_; }
+		const T* operator->() { return ptr_; }
+		bool operator==(const const_reverse_iterator& rhs) { return ptr_ == rhs.ptr_; }
+		bool operator!=(const const_reverse_iterator& rhs) { return ptr_ != rhs.ptr_; }
+
+	private:
+		T* ptr_;
+	};
+
 	String()
 	{
 		str_ = nullptr;
