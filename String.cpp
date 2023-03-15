@@ -77,6 +77,10 @@ public:
 
 	reverse_iterator rend() { return reverse_iterator(str_ - 1); }
 
+	const_iterator cbegin() const { return const_iterator(str_); }
+
+	const_iterator cend() const { return const_iterator(str_ + size_); }
+
 	String()
 	{
 		str_ = nullptr;
