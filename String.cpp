@@ -69,6 +69,9 @@ public:
 		char* ptr_;
 	};
 
+	iterator begin() { return iterator(str_); }
+	iterator end() { return iterator(str_ + size_); }
+
 	String()
 	{
 		str_ = nullptr;
