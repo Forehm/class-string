@@ -70,7 +70,12 @@ public:
 	};
 
 	iterator begin() { return iterator(str_); }
+
 	iterator end() { return iterator(str_ + size_); }
+
+	reverse_iterator rbegin() { return reverse_iterator(&str_[size_ - 1]); }
+
+	reverse_iterator rend() { return reverse_iterator(str_ - 1); }
 
 	String()
 	{
