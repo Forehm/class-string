@@ -312,6 +312,11 @@ public:
 		return size_ == 0;
 	}
 
+	bool is_not_empty()
+	{
+		return size_ != 0;
+	}
+
 	void Fill(const int& count_of_symbols, const char& symbol)
 	{
 		if (str_ != nullptr)
