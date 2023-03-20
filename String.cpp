@@ -213,6 +213,8 @@ public:
 		delete[] this->str_;
 	}
 
+	char* data() { return this->str_; }
+
 	void Print()
 	{
 		std::cout << str_ << std::endl;
