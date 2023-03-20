@@ -215,6 +215,8 @@ public:
 
 	char* data() { return this->str_; }
 
+	char* rdata() { return this->str_ + (size_ - 1); }
+
 	void Print()
 	{
 		std::cout << str_ << std::endl;
