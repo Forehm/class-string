@@ -338,11 +338,11 @@ public:
 		size_ = count_of_symbols;
 	}
 
-	void replace(const int& index, const char& symbol)
+	void Replace(const int& index, const char& symbol)
 	{
-		if (index !> size_)
+		if (index <= size_)
 		{
-			str[index] = symbol;
+			str_[index] = symbol;
 		}
 	}
 
