@@ -346,6 +346,16 @@ public:
 		}
 	}
 
+	void change_from_to(const char& symbol_to_change, const char& new_symbol)
+	{
+		for (size_t i = 0; i < size_; ++i)
+		{
+			if (str_[i] == symbol_to_change)
+			{
+				str_[i] = new_symbol;
+			}
+		}
+	}
 
 private:
 	char* str_;
