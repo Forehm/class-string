@@ -338,7 +338,7 @@ public:
 		size_ = count_of_symbols;
 	}
 
-	void Replace(const int& index, const char& symbol)
+	void Change(const int& index, const char& symbol)
 	{
 		if (index <= size_)
 		{
