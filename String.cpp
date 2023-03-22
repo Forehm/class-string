@@ -357,6 +357,33 @@ public:
 		}
 	}
 
+	void erase_every(const char& symbol_to_erase)
+	{
+		int counter = 0;
+		for (size_t i = 0; i < size_; ++i)
+		{
+			if (str_[i] == symbol_to_erase)
+			{
+				counter++;
+			}
+		}
+
+		char* arr = new char[(size_ - counter) + 1];
+		for (size_t i = 0, j = 0; i < size_; ++i, ++j)
+		{
+			if (str_[i] == symbol_to_erase)
+			{
+				++i;
+			}
+			arr[j] = str_[i];
+		}
+		arr[size_ - counter] = '\0';
+		delete[] str_;
+		str_ = arr;
+		arr = nullptr;
+		size_ = size_ - counter;
+	}
+
 private:
 	char* str_;
 	int size_;
