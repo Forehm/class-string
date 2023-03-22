@@ -346,6 +346,11 @@ public:
 		}
 	}
 
+	void Change(iterator& it, const char& symbol)
+	{
+		*it = symbol;
+	}
+
 	void change_from_to(const char& symbol_to_change, const char& new_symbol)
 	{
 		for (size_t i = 0; i < size_; ++i)
@@ -377,12 +382,15 @@ public:
 			}
 			arr[j] = str_[i];
 		}
+
 		arr[size_ - counter] = '\0';
 		delete[] str_;
 		str_ = arr;
 		arr = nullptr;
 		size_ = size_ - counter;
 	}
+
+	 
 
 private:
 	char* str_;
