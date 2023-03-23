@@ -97,7 +97,7 @@ public:
 		this->str_ = new char[size_ + 1];
 
 
-		for (int i = 0; i < size_; i++)
+		for (size_t i = 0; i < size_; i++)
 		{
 			this->str_[i] = str[i];
 		}
@@ -109,7 +109,7 @@ public:
 		size_ = strlen(other.str_);
 		this->str_ = new char[size_ + 1];
 
-		for (int i = 0; i < size_; ++i)
+		for (size_t i = 0; i < size_; ++i)
 		{
 			this->str_[i] = other.str_[i];
 		}
@@ -118,7 +118,7 @@ public:
 
 	}
 
-	String(const int& new_size, const char& symbol)
+	String(const size_t& new_size, const char& symbol)
 	{
 		if (new_size <= 0)
 		{
@@ -128,7 +128,7 @@ public:
 		size_ = new_size;
 		this->str_ = new char[size_ + 1];
 
-		for (int i = 0; i < size_; ++i)
+		for (size_t i = 0; i < size_; ++i)
 		{
 			this->str_[i] = symbol;
 		}
@@ -145,7 +145,7 @@ public:
 		size_ = strlen(other.str_);
 		this->str_ = new char[size_ + 1];
 
-		for (int i = 0; i < size_; i++)
+		for (size_t i = 0; i < size_; i++)
 		{
 			this->str_[i] = other.str_[i];
 		}
@@ -158,21 +158,21 @@ public:
 	String operator + (const String& other)
 	{
 		String newstr;
-		int thislength = strlen(this->str_);
-		int otherlength = strlen(other.str_);
+		size_t thislength = strlen(this->str_);
+		size_t otherlength = strlen(other.str_);
 
 		newstr.size_ = thislength + otherlength;
 
 		newstr.str_ = new char[thislength + otherlength + 1];
 
-		int i;
+		size_t i;
 
 		for (i = 0; i < thislength; i++)
 		{
 			newstr.str_[i] = this->str_[i];
 		}
 
-		for (int j = 0; j < otherlength; i++, j++)
+		for (size_t j = 0; j < otherlength; i++, j++)
 		{
 			newstr.str_[i] = other.str_[j];
 		}
@@ -188,7 +188,7 @@ public:
 			return false;
 		}
 
-		for (int i = 0; i < other.size_; i++)
+		for (size_t i = 0; i < other.size_; i++)
 		{
 			if (this->str_[i] != other.str_[i])
 			{
@@ -203,7 +203,7 @@ public:
 		return !(this->operator==(other));
 	}
 
-	char& operator [] (int index)
+	char& operator [] (const size_t& index)
 	{
 		return this->str_[index];
 	}
@@ -237,7 +237,7 @@ public:
 
 		char* array = new char[size_ + 2];
 
-		for (int i = 0; i < size_; ++i)
+		for (size_t i = 0; i < size_; ++i)
 		{
 			array[i] = str_[i];
 		}
@@ -252,7 +252,7 @@ public:
 	void pop_front()
 	{
 		char* array = new char[size_];
-		for (int i = 1; i < size_; ++i)
+		for (size_t i = 1; i < size_; ++i)
 		{
 			array[i - 1] = str_[i];
 		}
@@ -266,7 +266,7 @@ public:
 	{
 		--size_;
 		char* array = new char[size_];
-		for (int i = 0; i < size_; ++i)
+		for (size_t i = 0; i < size_; ++i)
 		{
 			array[i] = str_[i];
 		}
@@ -298,7 +298,7 @@ public:
 		return false;
 	}
 
-	char& At(const int& index)
+	char& At(const size_t& index)
 	{
 		if (index >= size_ || index <= 0)
 		{
@@ -321,7 +321,7 @@ public:
 		return size_ != 0;
 	}
 
-	void Fill(const int& count_of_symbols, const char& symbol)
+	void Fill(const size_t& count_of_symbols, const char& symbol)
 	{
 		if (str_ != nullptr)
 		{
@@ -329,7 +329,7 @@ public:
 		}
 		str_ = new char[count_of_symbols];
 
-		for (int i = 0; i < count_of_symbols; ++i)
+		for (size_t i = 0; i < count_of_symbols; ++i)
 		{
 			str_[i] = symbol;
 		}
@@ -385,7 +385,7 @@ public:
 
 		arr[size_ - counter] = '\0';
 		delete[] str_;
-		str_ = arr;
+		str_ = arr;/
 		arr = nullptr;
 		size_ = size_ - counter;
 	}
@@ -394,7 +394,7 @@ public:
 	{
 		char* arr = new char[size_];
 
-		for (int i = 0, j = 0; i < size_; ++i, ++j)
+		for (size_t i = 0, j = 0; i < size_; ++i, ++j)
 		{
 			if (i != index)
 			{
@@ -419,7 +419,7 @@ public:
 
 private:
 	char* str_;
-	int size_;
+	size_t size_;
 
 	class StringException : public exception
 	{
