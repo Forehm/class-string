@@ -390,6 +390,31 @@ public:
 		size_ = size_ - counter;
 	}
 
+	void Erase(const int& index)
+	{
+		char* arr = new char[size_];
+
+		for (int i = 0, j = 0; i < size_; ++i, ++j)
+		{
+			if (i != index)
+			{
+				arr[j] = str_[i];
+			}
+			else
+			{
+
+				++i;
+				arr[j] = str_[i];
+			}
+		}
+
+		arr[size_ - 1] = '\0';
+		delete[] str_;
+		str_ = arr;
+		arr = nullptr;
+
+		--size_;
+	}
 	 
 
 private:
