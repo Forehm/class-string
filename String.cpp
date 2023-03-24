@@ -330,7 +330,21 @@ public:
 	{
 		return size_ != 0;
 	}
-
+	
+	size_t Count(const char& symbol)
+	{
+	    size_t counter = 0;
+	    
+	    for(size_t i = 0; i < size_; ++i)
+	    {
+	        if(str_[i] == symbol)
+	        {
+	            ++counter;
+	        }
+	    }
+	    return counter;
+	}
+	
 	void Fill(const size_t& count_of_symbols, const char& symbol)
 	{
 		if (str_ != nullptr)
