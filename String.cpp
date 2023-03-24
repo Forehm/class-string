@@ -134,6 +134,16 @@ public:
 		}
 		str_ += '\0';
 	}
+	
+	 String(std::string& str)
+    	{
+        	str_ = new char[str.size()];
+        	for(size_t i = 0; i < str.size(); ++i)
+       		{
+           		str_[i] = str[i];
+        	}
+        	size_ = str.size();
+    	}
 
 	String& operator = (const String& other)
 	{
