@@ -446,6 +446,8 @@ public:
 	
 	bool operator == (const std::string& other) { return this->size_ == other.size(); }
 	
+	bool operator != (const std::string& other) { return this->size_ != other.size(); }
+	
 private:
 	char* str_;
 	size_t size_;
