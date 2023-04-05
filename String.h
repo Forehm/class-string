@@ -409,9 +409,7 @@ public:
 		}
 
 		arr[size_ - counter] = '\0';
-		delete[] str_;
-		str_ = arr;
-		arr = nullptr;
+		SwapArrays(arr);
 		size_ = size_ - counter;
 	}
 
@@ -434,9 +432,7 @@ public:
 		}
 
 		arr[size_ - 1] = '\0';
-		delete[] str_;
-		str_ = arr;
-		arr = nullptr;
+		SwapArrays(arr);
 
 		--size_;
 	}
@@ -453,7 +449,14 @@ private:
 	char* str_;
 	size_t size_;
 
-	class StringException : public exception
+	void SwapArrays(char* array)
+	{
+		delete[]str_;
+		str_ = array;
+		array = nullptr;
+	}
+
+	class StringException : public std::exception
 	{
 	private:
 		int error_number_ = 0;
