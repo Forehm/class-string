@@ -246,45 +246,39 @@ public:
 	void push_back(const char& symbol)
 	{
 
-		char* array = new char[size_ + 2];
+		char* arr = new char[size_ + 2];
 
 		for (size_t i = 0; i < size_; ++i)
 		{
-			array[i] = str_[i];
+			arr[i] = str_[i];
 		}
-		array[size_] = symbol;
-		array[size_ + 1] = '\0';
+		arr[size_] = symbol;
+		arr[size_ + 1] = '\0';
 
-		this->str_ = array;
-		array = nullptr;
+		SwapArrays(arr);
 		++size_;
 	}
 
 	void pop_front()
 	{
-		char* array = new char[size_];
+		char* arr = new char[size_];
 		for (size_t i = 1; i < size_; ++i)
 		{
-			array[i - 1] = str_[i];
+			arr[i - 1] = str_[i];
 		}
-
-		this->str_ = array;
-		array = nullptr;
+		SwapArrays(arr);
 		--size_;
 	}
 
 	void pop_back()
 	{
 		--size_;
-		char* array = new char[size_];
+		char* arr = new char[size_];
 		for (size_t i = 0; i < size_; ++i)
 		{
-			array[i] = str_[i];
+			arr[i] = str_[i];
 		}
-
-		this->str_ = array;
-		array = nullptr;
-
+		SwapArrays(arr);
 	}
 
 	friend std::ostream& operator << (std::ostream& os, String& s);
