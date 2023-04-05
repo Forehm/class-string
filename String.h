@@ -410,7 +410,7 @@ public:
 
 		arr[size_ - counter] = '\0';
 		delete[] str_;
-		str_ = arr;/
+		str_ = arr;
 		arr = nullptr;
 		size_ = size_ - counter;
 	}
