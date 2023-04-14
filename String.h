@@ -70,13 +70,13 @@ public:
 		char* ptr_;
 	};
 
-	iterator begin() { return iterator(str_); }
+	iterator begin() const { return iterator(str_); }
 
-	iterator end() { return iterator(str_ + size_); }
+	iterator end() const { return iterator(str_ + size_); }
 
-	reverse_iterator rbegin() { return reverse_iterator(&str_[size_ - 1]); }
+	reverse_iterator rbegin() const { return reverse_iterator(&str_[size_ - 1]); }
 
-	reverse_iterator rend() { return reverse_iterator(str_ - 1); }
+	reverse_iterator rend() const { return reverse_iterator(str_ - 1); }
 
 	const_iterator cbegin() const { return const_iterator(str_); }
 
@@ -136,7 +136,7 @@ public:
 		str_ += '\0';
 	}
 	
-	 String(std::string& str)
+	String(std::string& str)
     	{
         	str_ = new char[str.size()];
         	for(size_t i = 0; i < str.size(); ++i)
