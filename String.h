@@ -205,63 +205,17 @@ public:
 
 	void change_from_to(const char& symbol_to_change, const char& new_symbol);
 
-	void erase_every(const char& symbol_to_erase)
-	{
-		int counter = 0;
-		for (size_t i = 0; i < size_; ++i)
-		{
-			if (str_[i] == symbol_to_erase)
-			{
-				counter++;
-			}
-		}
+	void erase_every(const char& symbol_to_erase);
 
-		char* arr = new char[(size_ - counter) + 1];
-		for (size_t i = 0, j = 0; i < size_; ++i, ++j)
-		{
-			if (str_[i] == symbol_to_erase)
-			{
-				++i;
-			}
-			arr[j] = str_[i];
-		}
-
-		arr[size_ - counter] = '\0';
-		SwapArrays(arr);
-		size_ = size_ - counter;
-	}
-
-	void Erase(const int& index)
-	{
-		char* arr = new char[size_];
-
-		for (size_t i = 0, j = 0; i < size_; ++i, ++j)
-		{
-			if (i != index)
-			{
-				arr[j] = str_[i];
-			}
-			else
-			{
-
-				++i;
-				arr[j] = str_[i];
-			}
-		}
-
-		arr[size_ - 1] = '\0';
-		SwapArrays(arr);
-
-		--size_;
-	}
+	void Erase(const int& index);
 	 
-	bool operator < (const std::string& other) { return this->size_ < other.size(); }
+	bool operator < (const std::string& other);
 	
-	bool operator > (const std::string& other) { return this->size_ > other.size(); }
+	bool operator > (const std::string& other);
 	
-	bool operator == (const std::string& other) { return this->size_ == other.size(); }
+	bool operator == (const std::string& other);
 	
-	bool operator != (const std::string& other) { return this->size_ != other.size(); }
+	bool operator != (const std::string& other);
 	
 private:
 	char* str_;
