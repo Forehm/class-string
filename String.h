@@ -179,13 +179,13 @@ public:
 
 	friend std::ostream& operator << (std::ostream& os, String& s);
 
-	bool operator < (const String& other) { return this->size_ < other.size_; }
+	bool operator < (const String& other);
 
-	bool operator > (const String& other) { return this->size_ > other.size_; }
+	bool operator > (const String& other);
 
-	bool operator <= (const String& other) { return this->size_ <= other.size_; }
+	bool operator <= (const String& other);
 
-	bool operator >= (const String& other) { return this->size_ >= other.size_; }
+	bool operator >= (const String& other);
 
 	bool Find(const char& symbol)
 	{

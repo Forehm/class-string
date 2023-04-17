@@ -121,3 +121,11 @@ void String::pop_back()
 	}
 	SwapArrays(arr);
 }
+
+bool String::operator < (const String& other) { return this->size_ < other.size_; }
+
+bool String::operator > (const String& other) { return this->size_ > other.size_; }
+
+bool String::operator <= (const String& other) { return this->size_ <= other.size_; }
+
+bool String::operator >= (const String& other) { return this->size_ >= other.size_; }
