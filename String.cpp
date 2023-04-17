@@ -129,3 +129,84 @@ bool String::operator > (const String& other) { return this->size_ > other.size_
 bool String::operator <= (const String& other) { return this->size_ <= other.size_; }
 
 bool String::operator >= (const String& other) { return this->size_ >= other.size_; }
+
+bool String::Find(const char& symbol)
+{
+	for (int i = 0; i < size_; ++i)
+	{
+		if (str_[i] == symbol)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+char& String::At(const size_t& index)
+{
+	if (index >= size_ || index <= 0)
+	{
+		throw StringException(1);
+	}
+	else
+	{
+		return str_[index - 1];
+	}
+}
+
+bool String::is_empty() { return size_ == 0; }
+
+bool String::is_not_empty() { return size_ != 0; }
+
+size_t String::Count(const char& symbol)
+{
+	size_t counter = 0;
+
+	for (size_t i = 0; i < size_; ++i)
+	{
+		if (str_[i] == symbol)
+		{
+			++counter;
+		}
+	}
+	return counter;
+}
+
+void String::Fill(const size_t& count_of_symbols, const char& symbol)
+{
+	if (str_ != nullptr)
+	{
+		delete[] str_;
+	}
+	str_ = new char[count_of_symbols];
+
+	for (size_t i = 0; i < count_of_symbols; ++i)
+	{
+		str_[i] = symbol;
+	}
+	str_ += '\0';
+
+	size_ = count_of_symbols;
+}
+
+void String::Change(const int& index, const char& symbol)
+{
+	if (index <= size_)
+	{
+		str_[index] = symbol;
+	}
+}
+
+void String::Change(iterator& it, const char& symbol) { *it = symbol; }
+
+void String::change_from_to(const char& symbol_to_change, const char& new_symbol)
+{
+	for (size_t i = 0; i < size_; ++i)
+	{
+		if (str_[i] == symbol_to_change)
+		{
+			str_[i] = new_symbol;
+		}
+	}
+}
+

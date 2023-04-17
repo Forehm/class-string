@@ -187,95 +187,23 @@ public:
 
 	bool operator >= (const String& other);
 
-	bool Find(const char& symbol)
-	{
-		for (int i = 0; i < size_; ++i)
-		{
-			if (str_[i] == symbol)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+	bool Find(const char& symbol);
 
-	char& At(const size_t& index)
-	{
-		if (index >= size_ || index <= 0)
-		{
-			throw StringException(1);
-		}
-		else
-		{
-			return str_[index - 1];
-		}
+	char& At(const size_t& index);
 
-	}
+	bool is_empty();
 
-	bool is_empty()
-	{
-		return size_ == 0;
-	}
-
-	bool is_not_empty()
-	{
-		return size_ != 0;
-	}
+	bool is_not_empty();
 	
-	size_t Count(const char& symbol)
-	{
-	    size_t counter = 0;
-	    
-	    for(size_t i = 0; i < size_; ++i)
-	    {
-	        if(str_[i] == symbol)
-	        {
-	            ++counter;
-	        }
-	    }
-	    return counter;
-	}
+	size_t Count(const char& symbol);
 	
-	void Fill(const size_t& count_of_symbols, const char& symbol)
-	{
-		if (str_ != nullptr)
-		{
-			delete[] str_;
-		}
-		str_ = new char[count_of_symbols];
+	void Fill(const size_t& count_of_symbols, const char& symbol);
 
-		for (size_t i = 0; i < count_of_symbols; ++i)
-		{
-			str_[i] = symbol;
-		}
-		str_ += '\0';
+	void Change(const int& index, const char& symbol);
 
-		size_ = count_of_symbols;
-	}
+	void Change(iterator& it, const char& symbol);
 
-	void Change(const int& index, const char& symbol)
-	{
-		if (index <= size_)
-		{
-			str_[index] = symbol;
-		}
-	}
-
-	void Change(iterator& it, const char& symbol)
-	{
-		*it = symbol;
-	}
-
-	void change_from_to(const char& symbol_to_change, const char& new_symbol)
-	{
-		for (size_t i = 0; i < size_; ++i)
-		{
-			if (str_[i] == symbol_to_change)
-			{
-				str_[i] = new_symbol;
-			}
-		}
-	}
+	void change_from_to(const char& symbol_to_change, const char& new_symbol);
 
 	void erase_every(const char& symbol_to_erase)
 	{
