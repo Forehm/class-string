@@ -146,78 +146,15 @@ public:
         	size_ = str.size();
     	}
 
-	String& operator = (const String& other)
-	{
-		if (str_ != nullptr)
-		{
-			delete[] str_;
-		}
+	String& operator = (const String& other);
 
-		size_ = strlen(other.str_);
-		this->str_ = new char[size_ + 1];
+	String operator + (const String& other);
 
-		for (size_t i = 0; i < size_; i++)
-		{
-			this->str_[i] = other.str_[i];
-		}
-		this->str_[size_] = '\0';
+	bool operator == (const String& other);
 
+	bool operator != (const String& other);
 
-		return *this;
-	}
-
-	String operator + (const String& other)
-	{
-		String newstr;
-		size_t thislength = strlen(this->str_);
-		size_t otherlength = strlen(other.str_);
-
-		newstr.size_ = thislength + otherlength;
-
-		newstr.str_ = new char[thislength + otherlength + 1];
-
-		size_t i;
-
-		for (i = 0; i < thislength; i++)
-		{
-			newstr.str_[i] = this->str_[i];
-		}
-
-		for (size_t j = 0; j < otherlength; i++, j++)
-		{
-			newstr.str_[i] = other.str_[j];
-		}
-		newstr.str_[thislength + otherlength] = '\0';
-
-		return newstr;
-	}
-
-	bool operator == (const String& other)
-	{
-		if (this->size_ != other.size_)
-		{
-			return false;
-		}
-
-		for (size_t i = 0; i < other.size_; i++)
-		{
-			if (this->str_[i] != other.str_[i])
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	bool operator != (const String& other)
-	{
-		return !(this->operator==(other));
-	}
-
-	char& operator [] (const size_t& index)
-	{
-		return this->str_[index];
-	}
+	char& operator [] (const size_t& index);
 
 	~String()
 	{
