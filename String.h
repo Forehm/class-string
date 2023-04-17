@@ -161,62 +161,21 @@ public:
 		delete[] this->str_;
 	}
 
-	char* data() { return this->str_; }
+	char* data();
 
-	char* rdata() { return this->str_ + (size_ - 1); }
+	char* rdata();
 
-	void Print()
-	{
-		std::cout << str_ << std::endl;
-	}
+	void Print();
 
-	int Size()
-	{
-		return size_;
-	}
+	int Size();
 
-	char* c_str()
-	{
-		return str_;
-	}
+	char* c_str();
 
-	void push_back(const char& symbol)
-	{
+	void push_back(const char& symbol);
 
-		char* arr = new char[size_ + 2];
+	void pop_front();
 
-		for (size_t i = 0; i < size_; ++i)
-		{
-			arr[i] = str_[i];
-		}
-		arr[size_] = symbol;
-		arr[size_ + 1] = '\0';
-
-		SwapArrays(arr);
-		++size_;
-	}
-
-	void pop_front()
-	{
-		char* arr = new char[size_];
-		for (size_t i = 1; i < size_; ++i)
-		{
-			arr[i - 1] = str_[i];
-		}
-		SwapArrays(arr);
-		--size_;
-	}
-
-	void pop_back()
-	{
-		--size_;
-		char* arr = new char[size_];
-		for (size_t i = 0; i < size_; ++i)
-		{
-			arr[i] = str_[i];
-		}
-		SwapArrays(arr);
-	}
+	void pop_back();
 
 	friend std::ostream& operator << (std::ostream& os, String& s);
 

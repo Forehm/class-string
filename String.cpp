@@ -73,3 +73,51 @@ char& String::operator [] (const size_t& index)
 {
 	return this->str_[index];
 }
+
+char* String::data() { return this->str_; }
+
+char* String::rdata() { return this->str_ + (size_ - 1); }
+
+void String::Print() { std::cout << str_ << std::endl; }
+
+int String::Size() { return size_; }
+
+char* String::c_str() { return str_; }
+
+void String::push_back(const char& symbol)
+{
+
+	char* arr = new char[size_ + 2];
+
+	for (size_t i = 0; i < size_; ++i)
+	{
+		arr[i] = str_[i];
+	}
+	arr[size_] = symbol;
+	arr[size_ + 1] = '\0';
+
+	SwapArrays(arr);
+	++size_;
+}
+
+void String::pop_front()
+{
+	char* arr = new char[size_];
+	for (size_t i = 1; i < size_; ++i)
+	{
+		arr[i - 1] = str_[i];
+	}
+	SwapArrays(arr);
+	--size_;
+}
+
+void String::pop_back()
+{
+	--size_;
+	char* arr = new char[size_];
+	for (size_t i = 0; i < size_; ++i)
+	{
+		arr[i] = str_[i];
+	}
+	SwapArrays(arr);
+}
