@@ -1,6 +1,15 @@
 #include <iostream>
 #include "String.h"
 
+
+iterator String::begin() const { return iterator(str_); }
+
+iterator Strng::end() const { return iterator(str_ + size_); }
+
+reverse_iterator String::rbegin() const { return reverse_iterator(&str_[size_ - 1]); }
+
+
+
 String& String::operator = (const String& other)
 {
 	if (str_ != nullptr)

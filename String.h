@@ -72,11 +72,11 @@ public:
 		char* ptr_;
 	};
 
-	iterator begin() const { return iterator(str_); }
+	iterator begin() const;
 
-	iterator end() const { return iterator(str_ + size_); }
+	iterator end() const;
 
-	reverse_iterator rbegin() const { return reverse_iterator(&str_[size_ - 1]); }
+	reverse_iterator rbegin() const;
 
 	reverse_iterator rend() const { return reverse_iterator(str_ - 1); }
 
