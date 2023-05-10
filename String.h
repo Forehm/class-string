@@ -86,67 +86,17 @@ public:
 
 	const_reverse_iterator crbegin() const;
 
-	const_reverse_iterator crend() const { return const_reverse_iterator(str_ - 1); }
+	const_reverse_iterator crend() const;
 
-	String()
-	{
-		str_ = nullptr;
-		size_ = 0;
-	}
+	String();
 
-	String(const char* str)
-	{
-		size_ = strlen(str);
-		this->str_ = new char[size_ + 1];
+	String(const char* str);
 
+	String(const String& other);
 
-		for (size_t i = 0; i < size_; i++)
-		{
-			this->str_[i] = str[i];
-		}
-		this->str_[size_] = '\0';
-	}
-
-	String(const String& other)
-	{
-		size_ = strlen(other.str_);
-		this->str_ = new char[size_ + 1];
-
-		for (size_t i = 0; i < size_; ++i)
-		{
-			this->str_[i] = other.str_[i];
-		}
-
-		this->str_[size_] = '\0';
-
-	}
-
-	String(const size_t& new_size, const char& symbol)
-	{
-		if (new_size <= 0)
-		{
-			throw StringException(2);
-		}
-
-		size_ = new_size;
-		this->str_ = new char[size_ + 1];
-
-		for (size_t i = 0; i < size_; ++i)
-		{
-			this->str_[i] = symbol;
-		}
-		str_ += '\0';
-	}
+	String(const size_t& new_size, const char& symbol);
 	
-	String(std::string& str)
-    	{
-        	str_ = new char[str.size()];
-        	for(size_t i = 0; i < str.size(); ++i)
-       		{
-           		str_[i] = str[i];
-        	}
-        	size_ = str.size();
-    	}
+	String(std::string& str);
 
 	String& operator = (const String& other);
 
@@ -158,10 +108,7 @@ public:
 
 	char& operator [] (const size_t& index);
 
-	~String()
-	{
-		delete[] this->str_;
-	}
+	~String();
 
 	char* data();
 
@@ -223,12 +170,7 @@ private:
 	char* str_;
 	size_t size_;
 
-	void SwapArrays(char* array)
-	{
-		delete[]str_;
-		str_ = array;
-		array = nullptr;
-	}
+	void SwapArrays(char* array);
 
 	class StringException : public std::exception
 	{

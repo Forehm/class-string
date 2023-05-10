@@ -2,6 +2,11 @@
 #include "String.h"
 
 
+class iterator;
+class const_iterator;
+class reverse_iterator;
+class const_reverse_iterator;
+
 iterator String::begin() const { return iterator(str_); }
 
 iterator Strng::end() const { return iterator(str_ + size_); }
@@ -16,7 +21,67 @@ const_iterator String::cend() const { return const_iterator(str_ + size_); }
 
 const_reverse_iterator String::crbegin() const { return const_reverse_iterator(&str_[size_ - 1]); }
 
+const_reverse_iterator String::crend() const { return const_reverse_iterator(str_ - 1); }
 
+String::String()
+{
+	str_ = nullptr;
+	size_ = 0;
+}
+
+String::String(const String& other)
+{
+	size_ = strlen(other.str_);
+	this->str_ = new char[size_ + 1];
+
+	for (size_t i = 0; i < size_; ++i)
+	{
+		this->str_[i] = other.str_[i];
+	}
+
+	this->str_[size_] = '\0';
+
+}
+
+String::String(const char* str)
+{
+	size_ = strlen(str);
+	this->str_ = new char[size_ + 1];
+
+
+	for (size_t i = 0; i < size_; i++)
+	{
+		this->str_[i] = str[i];
+	}
+	this->str_[size_] = '\0';
+}
+
+String::String(const size_t& new_size, const char& symbol)
+{
+	if (new_size <= 0)
+	{
+		throw StringException(2);
+	}
+
+	size_ = new_size;
+	this->str_ = new char[size_ + 1];
+
+	for (size_t i = 0; i < size_; ++i)
+	{
+		this->str_[i] = symbol;
+	}
+	str_ += '\0';
+}
+
+String::String(std::string& str)
+{
+	str_ = new char[str.size()];
+	for (size_t i = 0; i < str.size(); ++i)
+	{
+		str_[i] = str[i];
+	}
+	size_ = str.size();
+}
 
 String& String::operator = (const String& other)
 {
@@ -277,6 +342,13 @@ void String::Erase(const int& index)
 	--size_;
 }
 
+void String::SwapArrays(char* array)
+{
+	delete[]str_;
+	str_ = array;
+	array = nullptr;
+}
+
 bool String::operator < (const std::string& other) { return this->size_ < other.size(); }
 
 bool String::operator > (const std::string& other) { return this->size_ > other.size(); }
@@ -285,3 +357,7 @@ bool String::operator == (const std::string& other) { return this->size_ == othe
 
 bool String::operator != (const std::string& other) { return this->size_ != other.size(); }
 
+String::~String()
+{
+	delete[] this->str_;
+}
