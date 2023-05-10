@@ -14,6 +14,8 @@ const_iterator String::cbegin() const { return const_iterator(str_); }
 
 const_iterator String::cend() const { return const_iterator(str_ + size_); }
 
+const_reverse_iterator String::crbegin() const { return const_reverse_iterator(&str_[size_ - 1]); }
+
 
 
 String& String::operator = (const String& other)
