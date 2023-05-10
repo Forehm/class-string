@@ -78,9 +78,9 @@ public:
 
 	reverse_iterator rbegin() const;
 
-	reverse_iterator rend() const { return reverse_iterator(str_ - 1); }
+	reverse_iterator rend() const;
 
-	const_iterator cbegin() const { return const_iterator(str_); }
+	const_iterator cbegin() const;
 
 	const_iterator cend() const { return const_iterator(str_ + size_); }
 

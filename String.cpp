@@ -8,7 +8,9 @@ iterator Strng::end() const { return iterator(str_ + size_); }
 
 reverse_iterator String::rbegin() const { return reverse_iterator(&str_[size_ - 1]); }
 
+reverse_iterator String::rend() const { return reverse_iterator(str_ - 1); }
 
+const_iterator String::cbegin() const { return const_iterator(str_); }
 
 String& String::operator = (const String& other)
 {
