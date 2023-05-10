@@ -12,6 +12,10 @@ reverse_iterator String::rend() const { return reverse_iterator(str_ - 1); }
 
 const_iterator String::cbegin() const { return const_iterator(str_); }
 
+const_iterator String::cend() const { return const_iterator(str_ + size_); }
+
+
+
 String& String::operator = (const String& other)
 {
 	if (str_ != nullptr)

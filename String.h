@@ -82,7 +82,7 @@ public:
 
 	const_iterator cbegin() const;
 
-	const_iterator cend() const { return const_iterator(str_ + size_); }
+	const_iterator cend() const;
 
 	const_reverse_iterator crbegin() const { return const_reverse_iterator(&str_[size_ - 1]); }
 
