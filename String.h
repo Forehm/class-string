@@ -12,6 +12,7 @@ public:
 	public:
 
 		iterator(char* ptr) : ptr_(ptr) { }
+		
 		iterator operator++() { iterator i = *this; ptr_++; return i; }
 		iterator operator++(int junk) { ptr_++; return *this; }
 		
