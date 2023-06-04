@@ -82,98 +82,61 @@ public:
 	};
 
 	iterator begin() const;
-
 	iterator end() const;
 
 	reverse_iterator rbegin() const;
-
 	reverse_iterator rend() const;
 
 	const_iterator cbegin() const;
-
 	const_iterator cend() const;
-
 	const_reverse_iterator crbegin() const;
-
 	const_reverse_iterator crend() const;
 
 	String();
-
 	String(const char* str);
-
 	String(const String& other);
-
 	String(const size_t& new_size, const char& symbol);
-	
 	String(std::string& str);
-
 	String& operator = (const String& other);
-
 	String operator + (const String& other);
-
-	bool operator == (const String& other);
-
-	bool operator != (const String& other);
-
-	char& operator [] (const size_t& index);
 
 	~String();
 
 	char* data();
-
 	char* rdata();
-
-	void Print();
-
-	int Size();
-
 	char* c_str();
-
-	void push_back(const char& symbol);
-
-	void pop_front();
-
-	void pop_back();
-
-	friend std::ostream& operator << (std::ostream& os, String& s);
-
-	bool operator < (const String& other);
-
-	bool operator > (const String& other);
-
-	bool operator <= (const String& other);
-
-	bool operator >= (const String& other);
-
-	bool Find(const char& symbol);
-
-	char& At(const size_t& index);
+	char& operator [] (const size_t& index);
 
 	bool is_empty();
-
 	bool is_not_empty();
-	
-	size_t Count(const char& symbol);
+	bool Find(const char& symbol);
 	
 	void Fill(const size_t& count_of_symbols, const char& symbol);
-
 	void Change(const int& index, const char& symbol);
-
 	void Change(iterator& it, const char& symbol);
-
 	void change_from_to(const char& symbol_to_change, const char& new_symbol);
-
 	void erase_every(const char& symbol_to_erase);
-
 	void Erase(const int& index);
-	 
+	void push_back(const char& symbol);
+	void pop_front();
+	void pop_back();
+	void Print();
+	
 	bool operator < (const std::string& other);
-	
 	bool operator > (const std::string& other);
-	
 	bool operator == (const std::string& other);
-	
 	bool operator != (const std::string& other);
+	bool operator < (const String& other);
+	bool operator > (const String& other);
+	bool operator <= (const String& other);
+	bool operator >= (const String& other);
+	bool operator == (const String& other);
+	bool operator != (const String& other);
+
+	size_t Count(const char& symbol);
+	size_t Size();
+	friend std::ostream& operator << (std::ostream& os, String& s);
+	char& At(const size_t& index);
 	
 private:
 	char* str_;
