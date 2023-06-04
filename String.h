@@ -35,8 +35,10 @@ public:
 		const_iterator(char* ptr) : ptr_(ptr) { }
 		const_iterator operator++() { const_iterator i = *this; ptr_++; return i; }
 		const_iterator operator++(int junk) { ptr_++; return *this; }
+		
 		const char& operator*() { return *ptr_; }
 		const char* operator->() { return ptr_; }
+		
 		bool operator==(const const_iterator& rhs) { return ptr_ == rhs.ptr_; }
 		bool operator!=(const const_iterator& rhs) { return ptr_ != rhs.ptr_; }
 
@@ -51,8 +53,10 @@ public:
 		reverse_iterator(char* ptr) : ptr_(ptr) { }
 		reverse_iterator operator++() { reverse_iterator i = *this; ptr_--; return i; }
 		reverse_iterator operator++(int junk) { ptr_--; return *this; }
+		
 		char& operator*() { return *ptr_; }
 		char* operator->() { return ptr_; }
+		
 		bool operator==(const reverse_iterator& rhs) { return ptr_ == rhs.ptr_; }
 		bool operator!=(const reverse_iterator& rhs) { return ptr_ != rhs.ptr_; }
 
@@ -66,8 +70,10 @@ public:
 		const_reverse_iterator(char* ptr) : ptr_(ptr) { }
 		const_reverse_iterator operator++() { const_reverse_iterator i = *this; ptr_--; return i; }
 		const_reverse_iterator operator++(int junk) { ptr_--; return *this; }
+		
 		const char& operator*() { return *ptr_; }
 		const char* operator->() { return ptr_; }
+		
 		bool operator==(const const_reverse_iterator& rhs) { return ptr_ == rhs.ptr_; }
 		bool operator!=(const const_reverse_iterator& rhs) { return ptr_ != rhs.ptr_; }
 
