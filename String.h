@@ -18,6 +18,7 @@ public:
 		
 		char& operator*() { return *ptr_; }
 		char* operator->() { return ptr_; }
+		
 		bool operator==(const iterator& rhs) { return ptr_ == rhs.ptr_; }
 		bool operator!=(const iterator& rhs) { return ptr_ != rhs.ptr_; }
 
