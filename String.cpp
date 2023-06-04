@@ -162,7 +162,7 @@ char* String::rdata() { return this->str_ + (size_ - 1); }
 
 void String::Print() { std::cout << str_ << std::endl; }
 
-int String::Size() { return size_; }
+size_t String::Size() { return size_; }
 
 char* String::c_str() { return str_; }
 
