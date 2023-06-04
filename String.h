@@ -14,6 +14,7 @@ public:
 		iterator(char* ptr) : ptr_(ptr) { }
 		iterator operator++() { iterator i = *this; ptr_++; return i; }
 		iterator operator++(int junk) { ptr_++; return *this; }
+		
 		char& operator*() { return *ptr_; }
 		char* operator->() { return ptr_; }
 		bool operator==(const iterator& rhs) { return ptr_ == rhs.ptr_; }
