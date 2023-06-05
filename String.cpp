@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "String.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -62,7 +63,7 @@ String::String(const size_t& new_size, const char& symbol)
 {
 	if (new_size <= 0)
 	{
-		throw StringException(2);
+		throw std::invalid_argument("size cannot be less than 0");
 	}
 
 	size_ = new_size;
@@ -230,7 +231,7 @@ char& String::At(const size_t& index)
 {
 	if (index >= size_ || index <= 0)
 	{
-		throw StringException(1);
+		throw std::invalid_argument("invalid index");
 	}
 	else
 	{
