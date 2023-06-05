@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <stdexcept>
 
 
 class String
@@ -143,45 +143,6 @@ private:
 	size_t size_;
 
 	void SwapArrays(char* array);
-
-	class StringException : public std::exception
-	{
-	private:
-		int error_number_ = 0;
-
-	public:
-		StringException(const int& error)
-		{
-			error_number_ = error;
-		}
-
-		const char* What()
-		{
-			switch (error_number_)
-			{
-			case 1:
-			{
-				return "index is out of array range";
-				break;
-			}
-			case 2:
-			{
-				return "the size cannot be negative";
-				break;
-			}
-			case 3:
-			{
-				return "the size of the array is too low";
-				break;
-			}
-			default:
-			{
-				return "Some unknown exception";
-				break;
-			}
-			}
-		}
-	};
 };
 
 
