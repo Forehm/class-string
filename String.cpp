@@ -1,6 +1,7 @@
 #include <iostream>
 #include "String.h"
 
+using namespace std;
 
 class iterator;
 class const_iterator;
