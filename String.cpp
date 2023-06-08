@@ -207,13 +207,13 @@ void String::pop_back()
 	SwapArrays(arr);
 }
 
-bool String::operator < (const String& other) { return this->size_ < other.size_; }
+bool String::operator < (const String& other) const { return this->size_ < other.size_; }
 
-bool String::operator > (const String& other) { return this->size_ > other.size_; }
+bool String::operator > (const String& other) const { return this->size_ > other.size_; }
 
-bool String::operator <= (const String& other) { return this->size_ <= other.size_; }
+bool String::operator <= (const String& other) const { return this->size_ <= other.size_; }
 
-bool String::operator >= (const String& other) { return this->size_ >= other.size_; }
+bool String::operator >= (const String& other) const { return this->size_ >= other.size_; }
 
 bool String::Find(const char& symbol)
 {
@@ -239,11 +239,11 @@ char& String::At(const size_t& index)
 	}
 }
 
-bool String::is_empty() { return size_ == 0; }
+bool String::is_empty() const { return size_ == 0; }
 
-bool String::is_not_empty() { return size_ != 0; }
+bool String::is_not_empty() const { return size_ != 0; }
 
-size_t String::Count(const char& symbol)
+size_t String::Count const (const char& symbol)
 {
 	size_t counter = 0;
 
@@ -352,13 +352,13 @@ void String::SwapArrays(char* array)
 	array = nullptr;
 }
 
-bool String::operator < (const std::string& other) { return this->size_ < other.size(); }
+bool String::operator < (const std::string& other) const { return this->size_ < other.size(); }
 
-bool String::operator > (const std::string& other) { return this->size_ > other.size(); }
+bool String::operator > (const std::string& other) const { return this->size_ > other.size(); }
 
-bool String::operator == (const std::string& other) { return this->size_ == other.size(); }
+bool String::operator == (const std::string& other) const { return this->size_ == other.size(); }
 
-bool String::operator != (const std::string& other) { return this->size_ != other.size(); }
+bool String::operator != (const std::string& other) const { return this->size_ != other.size(); }
 
 String::~String()
 {
