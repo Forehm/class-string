@@ -120,7 +120,7 @@ public:
 	void push_back(const char& symbol);
 	void pop_front();
 	void pop_back();
-	void Print();
+	void Print() const;
 	
 	bool operator < (const std::string& other);
 	bool operator > (const std::string& other);
