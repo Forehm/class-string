@@ -165,9 +165,9 @@ char* String::rdata() { return this->str_ + (size_ - 1); }
 
 void String::Print() const { std::cout << str_ << std::endl; }
 
-size_t String::Size() { return size_; }
+size_t String::Size() const { return size_; }
 
-char* String::c_str() { return str_; }
+char* String::c_str() const { return str_; }
 
 void String::push_back(const char& symbol)
 {
