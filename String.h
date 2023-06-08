@@ -122,16 +122,16 @@ public:
 	void pop_back();
 	void Print() const;
 	
-	bool operator < (const std::string& other);
-	bool operator > (const std::string& other);
-	bool operator == (const std::string& other);
-	bool operator != (const std::string& other);
-	bool operator < (const String& other);
-	bool operator > (const String& other);
-	bool operator <= (const String& other);
-	bool operator >= (const String& other);
-	bool operator == (const String& other);
-	bool operator != (const String& other);
+	bool operator < (const std::string& other) const;
+	bool operator > (const std::string& other) const;
+	bool operator == (const std::string& other) const;
+	bool operator != (const std::string& other) const;
+	bool operator < (const String& other) const;
+	bool operator > (const String& other) const;
+	bool operator <= (const String& other) const;
+	bool operator >= (const String& other) const;
+	bool operator == (const String& other) const;
+	bool operator != (const String& other) const;
 
 	size_t Count(const char& symbol);
 	size_t Size();
