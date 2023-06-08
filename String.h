@@ -104,7 +104,7 @@ public:
 
 	char* data();
 	char* rdata();
-	char* c_str();
+	char* c_str() const;
 	char& operator [] (const size_t& index);
 
 	bool is_empty() const;
