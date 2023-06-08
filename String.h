@@ -107,8 +107,8 @@ public:
 	char* c_str();
 	char& operator [] (const size_t& index);
 
-	bool is_empty();
-	bool is_not_empty();
+	bool is_empty() const;
+	bool is_not_empty() const;
 	bool Find(const char& symbol);
 	
 	void Fill(const size_t& count_of_symbols, const char& symbol);
@@ -133,8 +133,8 @@ public:
 	bool operator == (const String& other) const;
 	bool operator != (const String& other) const;
 
-	size_t Count(const char& symbol);
-	size_t Size();
+	size_t Count(const char& symbol) const;
+	size_t Size() const;
 	friend std::ostream& operator << (std::ostream& os, String& s);
 	char& At(const size_t& index);
 	
