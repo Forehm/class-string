@@ -114,7 +114,7 @@ public:
 	void Fill(const size_t& count_of_symbols, const char& symbol);
 	void Change(const int& index, const char& symbol);
 	void Change(iterator& it, const char& symbol);
-	void change_from_to(const char& symbol_to_change, const char& new_symbol);
+	void ChangeFromTo(const char& symbol_to_change, const char& new_symbol);
 	void EraseEvery(const char& symbol_to_erase);
 	void Erase(const int& index);
 	void PushBack(const char& symbol);
