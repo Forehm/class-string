@@ -115,10 +115,10 @@ public:
 	void Change(const int& index, const char& symbol);
 	void Change(iterator& it, const char& symbol);
 	void change_from_to(const char& symbol_to_change, const char& new_symbol);
-	void erase_every(const char& symbol_to_erase);
+	void EraseEvery(const char& symbol_to_erase);
 	void Erase(const int& index);
 	void push_back(const char& symbol);
-	void pop_front();
+	void PopFront();
 	void pop_back();
 	void Print() const;
 	
