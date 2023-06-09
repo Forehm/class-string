@@ -295,7 +295,7 @@ void String::change_from_to(const char& symbol_to_change, const char& new_symbol
 	}
 }
 
-void String::erase_every(const char& symbol_to_erase)
+void String::EraseEvery(const char& symbol_to_erase)
 {
 	int counter = 0;
 	for (size_t i = 0; i < size_; ++i)
