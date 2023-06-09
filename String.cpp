@@ -185,7 +185,7 @@ void String::push_back(const char& symbol)
 	++size_;
 }
 
-void String::pop_front()
+void String::PopFront()
 {
 	char* arr = new char[size_];
 	for (size_t i = 1; i < size_; ++i)
