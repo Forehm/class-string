@@ -169,7 +169,7 @@ size_t String::Size() const { return size_; }
 
 char* String::c_str() const { return str_; }
 
-void String::push_back(const char& symbol)
+void String::PushBack(const char& symbol)
 {
 
 	char* arr = new char[size_ + 2];
@@ -196,7 +196,7 @@ void String::PopFront()
 	--size_;
 }
 
-void String::pop_back()
+void String::PopBack()
 {
 	--size_;
 	char* arr = new char[size_];
@@ -239,9 +239,9 @@ char& String::At(const size_t& index)
 	}
 }
 
-bool String::is_empty() const { return size_ == 0; }
+bool String::IsEmpty() const { return size_ == 0; }
 
-bool String::is_not_empty() const { return size_ != 0; }
+bool String::IsNotEmpty() const { return size_ != 0; }
 
 size_t String::Count const (const char& symbol)
 {
