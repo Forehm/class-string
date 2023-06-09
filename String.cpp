@@ -284,7 +284,7 @@ void String::Change(const int& index, const char& symbol)
 
 void String::Change(iterator& it, const char& symbol) { *it = symbol; }
 
-void String::change_from_to(const char& symbol_to_change, const char& new_symbol)
+void String::ChangeFromTo(const char& symbol_to_change, const char& new_symbol)
 {
 	for (size_t i = 0; i < size_; ++i)
 	{
