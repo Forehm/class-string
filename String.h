@@ -107,8 +107,8 @@ public:
 	char* c_str() const;
 	char& operator [] (const size_t& index);
 
-	bool is_empty() const;
-	bool is_not_empty() const;
+	bool IsEmpty() const;
+	bool IsNotEmpty() const;
 	bool Find(const char& symbol);
 	
 	void Fill(const size_t& count_of_symbols, const char& symbol);
@@ -117,9 +117,9 @@ public:
 	void change_from_to(const char& symbol_to_change, const char& new_symbol);
 	void EraseEvery(const char& symbol_to_erase);
 	void Erase(const int& index);
-	void push_back(const char& symbol);
+	void PushBack(const char& symbol);
 	void PopFront();
-	void pop_back();
+	void PopBack();
 	void Print() const;
 	
 	bool operator < (const std::string& other) const;
