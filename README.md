@@ -2,4 +2,4 @@
 
 It is my own realisation of the class std::string. it has its own original methods but also my custom ones
 It is compatible with a standard std::string (almost)
-It will use standard STL exceptions 
+It will use standard STL exceptions (soon...)
