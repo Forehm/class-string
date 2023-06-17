@@ -154,7 +154,7 @@ bool String::operator != (const String& other)
 	return !(this->operator==(other));
 }
 
-char& String::operator [] (const size_t& index)
+char& String::operator [] (const size_t index)
 {
 	return this->str_[index];
 }
