@@ -10,21 +10,21 @@ class const_iterator;
 class reverse_iterator;
 class const_reverse_iterator;
 
-iterator String::begin() const { return iterator(str_); }
+iterator String::begin() const noexcept { return iterator(str_); }
 
-iterator Strng::end() const { return iterator(str_ + size_); }
+iterator Strng::end() const noexcept { return iterator(str_ + size_); }
 
-reverse_iterator String::rbegin() const { return reverse_iterator(&str_[size_ - 1]); }
+reverse_iterator String::rbegin() const noexcept { return reverse_iterator(&str_[size_ - 1]); }
 
-reverse_iterator String::rend() const { return reverse_iterator(str_ - 1); }
+reverse_iterator String::rend() const noexcept { return reverse_iterator(str_ - 1); }
 
-const_iterator String::cbegin() const { return const_iterator(str_); }
+const_iterator String::cbegin() const noexcept { return const_iterator(str_); }
 
-const_iterator String::cend() const { return const_iterator(str_ + size_); }
+const_iterator String::cend() const noexcept { return const_iterator(str_ + size_); }
 
-const_reverse_iterator String::crbegin() const { return const_reverse_iterator(&str_[size_ - 1]); }
+const_reverse_iterator String::crbegin() const noexcept { return const_reverse_iterator(&str_[size_ - 1]); }
 
-const_reverse_iterator String::crend() const { return const_reverse_iterator(str_ - 1); }
+const_reverse_iterator String::crend() const noexcept { return const_reverse_iterator(str_ - 1); }
 
 String::String()
 {
