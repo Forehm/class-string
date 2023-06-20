@@ -213,7 +213,7 @@ bool String::operator <= (const String& other) const { return this->size_ <= oth
 
 bool String::operator >= (const String& other) const { return this->size_ >= other.size_; }
 
-bool String::Find(const char& symbol)
+bool String::Find(const char& symbol) const noexcept
 {
 	for (int i = 0; i < size_; ++i)
 	{
@@ -237,9 +237,9 @@ char& String::At(const size_t& index)
 	}
 }
 
-bool String::IsEmpty() const { return size_ == 0; }
+bool String::IsEmpty() const noexcept { return size_ == 0; }
 
-bool String::IsNotEmpty() const { return size_ != 0; }
+bool String::IsNotEmpty() const noexcept { return size_ != 0; }
 
 size_t String::Count const (const char& symbol)
 {
