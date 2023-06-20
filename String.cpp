@@ -132,7 +132,7 @@ String String::operator + (const String& other)
 	return newstr;
 }
 
-bool String::operator == (const String& other)
+bool String::operator == (const String& other) noexcept
 {
 	if (this->size_ != other.size_)
 	{
@@ -149,7 +149,7 @@ bool String::operator == (const String& other)
 	return true;
 }
 
-bool String::operator != (const String& other)
+bool String::operator != (const String& other) noexcept
 {
 	return !(this->operator==(other));
 }
@@ -205,13 +205,13 @@ void String::PopBack()
 	SwapArrays(arr);
 }
 
-bool String::operator < (const String& other) const { return this->size_ < other.size_; }
+bool String::operator < (const String& other) const noexcept { return this->size_ < other.size_; }
 
-bool String::operator > (const String& other) const { return this->size_ > other.size_; }
+bool String::operator > (const String& other) const noexcept { return this->size_ > other.size_; }
 
-bool String::operator <= (const String& other) const { return this->size_ <= other.size_; }
+bool String::operator <= (const String& other) const noexcept { return this->size_ <= other.size_; }
 
-bool String::operator >= (const String& other) const { return this->size_ >= other.size_; }
+bool String::operator >= (const String& other) const noexcept { return this->size_ >= other.size_; }
 
 bool String::Find(const char& symbol) const noexcept
 {
@@ -350,13 +350,13 @@ void String::SwapArrays(char* array)
 	array = nullptr;
 }
 
-bool String::operator < (const std::string& other) const { return this->size_ < other.size(); }
+bool String::operator < (const std::string& other) const noexcept { return this->size_ < other.size(); }
 
-bool String::operator > (const std::string& other) const { return this->size_ > other.size(); }
+bool String::operator > (const std::string& other) const noexcept { return this->size_ > other.size(); }
 
-bool String::operator == (const std::string& other) const { return this->size_ == other.size(); }
+bool String::operator == (const std::string& other) const noexcept { return this->size_ == other.size(); }
 
-bool String::operator != (const std::string& other) const { return this->size_ != other.size(); }
+bool String::operator != (const std::string& other) const noexcept { return this->size_ != other.size(); }
 
 String::~String()
 {
