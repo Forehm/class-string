@@ -81,16 +81,16 @@ public:
 		char* ptr_;
 	};
 
-	iterator begin() const;
-	iterator end() const;
+	iterator begin() const noexcept;
+	iterator end() const noexcept;
 
-	reverse_iterator rbegin() const;
-	reverse_iterator rend() const;
+	reverse_iterator rbegin() const noexcept;
+	reverse_iterator rend() const noexcept;
 
-	const_iterator cbegin() const;
-	const_iterator cend() const;
-	const_reverse_iterator crbegin() const;
-	const_reverse_iterator crend() const;
+	const_iterator cbegin() const noexcept;
+	const_iterator cend() const noexcept;
+	const_reverse_iterator crbegin() const noexcept;
+	const_reverse_iterator crend() const noexcept;
 
 	String();
 	String(const char* str);
