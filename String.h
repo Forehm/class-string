@@ -121,16 +121,16 @@ public:
 	void PopFront();
 	void PopBack();
 	
-	bool operator < (const std::string& other) const;
-	bool operator > (const std::string& other) const;
-	bool operator == (const std::string& other) const;
-	bool operator != (const std::string& other) const;
-	bool operator < (const String& other) const;
-	bool operator > (const String& other) const;
-	bool operator <= (const String& other) const;
-	bool operator >= (const String& other) const;
-	bool operator == (const String& other) const;
-	bool operator != (const String& other) const;
+	bool operator < (const std::string& other) const noexcept;
+	bool operator > (const std::string& other) const noexcept;
+	bool operator == (const std::string& other) const noexcept;
+	bool operator != (const std::string& other) const noexcept;
+	bool operator < (const String& other) const noexcept;
+	bool operator > (const String& other) const noexcept;
+	bool operator <= (const String& other) const noexcept;
+	bool operator >= (const String& other) const noexcept;
+	bool operator == (const String& other) const noexcept;
+	bool operator != (const String& other) const noexcept;
 
 	size_t Count(const char& symbol) const;
 	size_t Size() const;
