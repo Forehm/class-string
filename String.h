@@ -107,9 +107,9 @@ public:
 	char* c_str() const;
 	char& operator [] (const size_t index);
 
-	bool IsEmpty() const;
-	bool IsNotEmpty() const;
-	bool Find(const char& symbol);
+	bool IsEmpty() noexcept const;
+	bool IsNotEmpty() noexcept const;
+	bool Find(const char& symbol) noexcept const;
 	
 	void Fill(const size_t& count_of_symbols, const char& symbol);
 	void Change(const int& index, const char& symbol);
