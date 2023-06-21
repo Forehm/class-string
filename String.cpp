@@ -241,7 +241,7 @@ bool String::IsEmpty() const noexcept { return size_ == 0; }
 
 bool String::IsNotEmpty() const noexcept { return size_ != 0; }
 
-size_t String::Count const (const char& symbol)
+size_t String::Count (const char& symbol) const noexcept
 {
 	size_t counter = 0;
 
