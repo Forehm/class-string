@@ -133,7 +133,7 @@ public:
 	bool operator != (const String& other) const noexcept;
 
 	size_t Count(const char& symbol) const;
-	size_t Size() const;
+	size_t Size() const noexcept;
 	friend std::ostream& operator << (std::ostream& os, String& s);
 	char& At(const size_t& index);
 	
