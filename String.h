@@ -111,7 +111,7 @@ public:
 	bool IsNotEmpty() noexcept const;
 	bool Find(const char& symbol) noexcept const;
 	
-	void Fill(const size_t& count_of_symbols, const char& symbol);
+	void Fill(const size_t& count_of_symbols, const char& symbol) noexcept;
 	void Change(const int& index, const char& symbol);
 	void Change(iterator& it, const char& symbol);
 	void ChangeFromTo(const char& symbol_to_change, const char& new_symbol);
