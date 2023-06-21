@@ -255,7 +255,7 @@ size_t String::Count const (const char& symbol)
 	return counter;
 }
 
-void String::Fill(const size_t& count_of_symbols, const char& symbol)
+void String::Fill(const size_t& count_of_symbols, const char& symbol) noexcept
 {
 	if (str_ != nullptr)
 	{
