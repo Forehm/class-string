@@ -10,21 +10,21 @@ class const_iterator;
 class reverse_iterator;
 class const_reverse_iterator;
 
-iterator String::begin() const noexcept { return iterator(str_); }
+String::iterator String::begin() const noexcept { return iterator(str_); }
 
-iterator Strng::end() const noexcept { return iterator(str_ + size_); }
+String::iterator String::end() const noexcept { return iterator(str_ + size_); }
 
-reverse_iterator String::rbegin() const noexcept { return reverse_iterator(&str_[size_ - 1]); }
+String::reverse_iterator String::rbegin() const noexcept { return reverse_iterator(&str_[size_ - 1]); }
 
-reverse_iterator String::rend() const noexcept { return reverse_iterator(str_ - 1); }
+String::reverse_iterator String::rend() const noexcept { return reverse_iterator(str_ - 1); }
 
-const_iterator String::cbegin() const noexcept { return const_iterator(str_); }
+String::const_iterator String::cbegin() const noexcept { return const_iterator(str_); }
 
-const_iterator String::cend() const noexcept { return const_iterator(str_ + size_); }
+String::const_iterator String::cend() const noexcept { return const_iterator(str_ + size_); }
 
-const_reverse_iterator String::crbegin() const noexcept { return const_reverse_iterator(&str_[size_ - 1]); }
+String::const_reverse_iterator String::crbegin() const noexcept { return const_reverse_iterator(&str_[size_ - 1]); }
 
-const_reverse_iterator String::crend() const noexcept { return const_reverse_iterator(str_ - 1); }
+String::const_reverse_iterator String::crend() const noexcept { return const_reverse_iterator(str_ - 1); }
 
 String::String()
 {
@@ -132,28 +132,6 @@ String String::operator + (const String& other)
 	return newstr;
 }
 
-bool String::operator == (const String& other) noexcept
-{
-	if (this->size_ != other.size_)
-	{
-		return false;
-	}
-
-	for (size_t i = 0; i < other.size_; i++)
-	{
-		if (this->str_[i] != other.str_[i])
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-bool String::operator != (const String& other) noexcept
-{
-	return !(this->operator==(other));
-}
-
 char& String::operator [] (const size_t index)
 {
 	return this->str_[index];
@@ -213,6 +191,28 @@ bool String::operator <= (const String& other) const noexcept { return this->siz
 
 bool String::operator >= (const String& other) const noexcept { return this->size_ >= other.size_; }
 
+bool String::operator==(const String& other) const noexcept
+{
+	if (this->size_ != other.size_)
+	{
+		return false;
+	}
+
+	for (size_t i = 0; i < other.size_; i++)
+	{
+		if (this->str_[i] != other.str_[i])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool String::operator!=(const String& other) const noexcept
+{
+	return !(this->operator==(other));
+}
+
 bool String::Find(const char& symbol) const noexcept
 {
 	for (int i = 0; i < size_; ++i)
@@ -241,7 +241,7 @@ bool String::IsEmpty() const noexcept { return size_ == 0; }
 
 bool String::IsNotEmpty() const noexcept { return size_ != 0; }
 
-size_t String::Count (const char symbol) const noexcept
+size_t String::Count(const char symbol) const noexcept
 {
 	size_t counter = 0;
 
@@ -361,4 +361,13 @@ bool String::operator != (const std::string& other) const noexcept { return this
 String::~String()
 {
 	delete[] this->str_;
+}
+
+std::ostream& operator<<(std::ostream& os, String& s)
+{
+	for (const char& c : s)
+	{
+		os << c;
+	}
+	return os;
 }
