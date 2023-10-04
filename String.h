@@ -5,8 +5,7 @@
 
 class String
 {
-public:
-
+public:
 	class iterator
 	{
 	public:
