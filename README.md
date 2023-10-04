@@ -21,4 +21,4 @@ Class string
   16. Method Find() this method works as a method count in std::set or std:map
   17. operator + and =
   18. destructor
-4) I have a plan to add a concept of exceptions here to handle some extraordinary cases, i want to make this part with the help of std::exception.
+4) I have a plan to add a concept of exceptions here to handle some extraordinary cases, I want to make this part with the help of std::exception.
