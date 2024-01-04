@@ -4,6 +4,7 @@ It is my one of the first projects. I have done it to understand how the real cl
  **System requirements: C++17, C17, x86 platform.**
 
 The project is a final class that consists of following metods:
+
   1. begin, cbegin, crbegin, end, cend, crend
   2. five different constructors (std::string is supported)
   3. operators of comparison (>, <, ==, != etc.)
