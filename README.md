@@ -1,6 +1,6 @@
 # Class string
 
-It is my one of the first projects. I have done it to understand how the real class std::string works. I used the primitive iterators here that I have found in some other project in the network, a lot of cycles and the RAII idiom. The interesting fact is that this project is made without any STL feautures, it was some kind of challange. I added here some more methods that should be in real std::string as I think, so I have realized it here. 
+This is my one of the first projects. I have done it to understand how the real class std::string works. I used the primitive iterators here that I have found in some other project in the network, a lot of cycles and the RAII idiom. The interesting fact is that this project is made without any STL feautures, it was some kind of challange. I added here some more methods that should be in real std::string as I think, so I have realized it here. 
  **System requirements: C++17, x86\64 platform.**
 
 The project is a final class that consists of following metods:
